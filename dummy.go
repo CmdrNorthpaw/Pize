@@ -6,7 +6,18 @@ type DummyDrone struct {
 	VideoOn bool
 
 	Position Position
-	Spped int16
+	Speed int16
+}
+
+func NewDrone() *DummyDrone {
+	return &DummyDrone{
+		SDKMode: false,
+		Airborne: false,
+		VideoOn: false,
+
+		Position: Position{},
+		Speed: 0,
+	}
 }
 
 type Position struct {
