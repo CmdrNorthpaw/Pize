@@ -6,6 +6,12 @@ import (
 )
 
 var Commands = map[string]func(*DummyDrone, ...string) (bool, string) {
+	// Not part of the SDK but provides a reset function for convenience
+	"reset": func(dd *DummyDrone, s ...string) (bool, string) {
+		dd = NewDrone()
+		return true, "Drone reset to default. Remember to enable SDK mode!"
+	},
+
 	"takeoff": func(dd *DummyDrone, s ...string) (bool, string) {
 		if dd.Airborne {
 			return false, "Drone is already airborne"
